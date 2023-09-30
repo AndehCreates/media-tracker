@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+body {
+  color: aquamarine;
+  background-color: black;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -11,6 +16,19 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+img {
+  border-radius: 0.25em;
+  border: solid;
+  border-width: 6px;
+  border-color: transparent;
+  border-style: outset;
+}
+img:hover {
+  border-color: #00480080;
+  /* border-radius: 0.25em; */
+  /* border-style: outset; */
 }
 
 .App-header {
