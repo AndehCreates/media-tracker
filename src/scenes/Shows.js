@@ -175,14 +175,15 @@ const Shows = ({ shows, onOpen, editShow }) => {
         justifyContent='center'
         p='2em'
       >
-        {statuses.map((status) => {
+        {statuses.map((status, i) => {
           const filteredShows = sortedShows.filter(
             (show) => show.status === status
           );
+          //   console.log(i);
 
           return (
             <Section
-              key={status}
+              key={i}
               status={status}
               shows={filteredShows}
             />
