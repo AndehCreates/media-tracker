@@ -5,7 +5,9 @@ Show and Movie Tracker
 <!--
 TO DO:
 
-[] Working on Edit Dialog integration
+[x] Working on Edit Dialog integration
+[] flesh out edit dialog optiops for shows
+[] Dialog options for movies
 [] Set up API CRUD operations
 [] Set up API error handling
 [] API to local storage for offline use

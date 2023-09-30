@@ -10,7 +10,7 @@ import {
   Button,
 } from '@mui/material';
 
-const EditDialog = ({ editShow, onSave, onOpen }) => {
+const EditDialog = ({ openDialog, editShow, onSave, onClose }) => {
   const [editedItem, setEditedItem] = useState(editShow);
 
   console.log('triggered edit');
@@ -21,18 +21,14 @@ const EditDialog = ({ editShow, onSave, onOpen }) => {
       [field]: event.target.value,
     });
   };
-  onOpen(editShow);
-  // const handleSave = () => {
-  //   onSave(editShow);
-  //   onclose();
-  // };
 
-  // const onSave = ({ editShow }) => {
-  //   // handle save PATCH calls
-  // };
+  const handleSave = () => {
+    onSave(editedItem);
+    onClose();
+  };
 
   return (
-    <Dialog>
+    <Dialog open={openDialog}>
       <DialogTitle>Edit {editShow.name}</DialogTitle>
       <DialogContent>
         <TextField

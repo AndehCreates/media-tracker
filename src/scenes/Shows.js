@@ -84,12 +84,11 @@ const Shows = ({ shows, onOpen, editShow }) => {
           {remainingEpisodes == 0 ? '' : 'Ep ' + remainingEpisodes}
           <br />
           <Button
-            onClick={onOpen}
+            onClick={() => onOpen(show)}
             variant='contained'
             color='success'
             editShow={editShow}
             show={show}
-            // handleOpen={handleOpen(show)}
           >
             Edit
           </Button>
@@ -153,7 +152,7 @@ const Shows = ({ shows, onOpen, editShow }) => {
                 key={show.id}
                 show={show}
                 {...show}
-                // handleOpen={handleOpen(show)}
+                onOpen={onOpen}
               />
             </Grid>
           ))}

@@ -3,7 +3,7 @@ import './App.css';
 import Shows from './scenes/Shows';
 import Movies from './scenes/Movies';
 import { getShows, getMovies } from './api/apiRequest';
-// import EditDialog from './components/EditDialog';
+import EditDialog from './components/EditDialog';
 import { MovieData, ShowData } from './data/data';
 
 import React, { useState } from 'react';
@@ -23,18 +23,21 @@ function App() {
   const handleOpen = (show) => {
     setOpenDialog(true);
     setEditShow(show);
-    console.log('handleOpen clicked');
+    console.log('handleOpen triggered');
+    console.log(show);
   };
 
   const handleClose = (show) => {
     setOpenDialog(false);
     setEditShow(null);
-    console.log('handleClose clicked');
+    console.log('handleClose triggered');
   };
 
   const handleSaveEdit = (editShow) => {
-    // onSave(editShow);
-    onclose();
+    // save + FETCH logic
+    console.log('handleSaveEdit triggered');
+    setOpenDialog(false);
+    setEditShow(null);
   };
 
   return (
@@ -91,18 +94,21 @@ function App() {
             shows={shows}
             onOpen={handleOpen}
             editShow={editShow}
+            onSave={handleSaveEdit}
+            onClose={handleClose}
+            openDialog={openDialog}
           />
         )}
         {view === 'movies' && <Movies movies={movies} />}
-        {openDialog &&
-          'opened'
-          // <EditDialog
-          //   editShow={editShow}
-          //   onSave={handleSaveEdit}
-          //   onOpen={handleOpen}
-          //   onClose={handleClose}
-          // />
-        }
+        {openDialog && (
+          <EditDialog
+            editShow={editShow}
+            onSave={handleSaveEdit}
+            // onOpen={handleOpen}
+            onClose={handleClose}
+            openDialog={openDialog}
+          />
+        )}
       </Box>
     </Container>
   );
