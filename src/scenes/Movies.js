@@ -43,7 +43,7 @@ const Movies = ({ movies }) => {
           //   'backgroundColor': 'primary.dark',
           'opacity': [0.4, 0.4, 0.4],
           '&:hover': {
-            backgroundColor: 'success.dark',
+            backgroundColor: '#052202',
             opacity: [0.9, 0.9, 0.9],
           },
         }}

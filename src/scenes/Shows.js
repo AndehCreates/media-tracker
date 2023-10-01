@@ -38,7 +38,7 @@ const Shows = ({ shows, onOpen, editShow }) => {
           //   'backgroundColor': 'primary.dark',
           'opacity': [0.4, 0.4, 0.4],
           '&:hover': {
-            backgroundColor: 'success.dark',
+            backgroundColor: '#052202',
             opacity: [0.9, 0.9, 0.9],
           },
         }}
@@ -51,10 +51,10 @@ const Shows = ({ shows, onOpen, editShow }) => {
             href={Link}
             target='_blank'
           >
-            {/* <img
+            <img
               src={Image}
               alt={Name}
-            /> */}
+            />
           </a>
         </Badge>
         <Box
@@ -64,12 +64,12 @@ const Shows = ({ shows, onOpen, editShow }) => {
           justifyContent='center'
           textAlign='center'
           alignItems='center'
-          p='1em'
-          gap='.75em'
+          p='.25em'
+          gap='.35em'
           borderRadius='.25em'
         >
           <Typography
-            fontSize='1.5em'
+            fontSize='2em'
             fontWeight='600'
             lineHeight='1em'
           >

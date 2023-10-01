@@ -17,6 +17,9 @@ body {
     animation: App-logo-spin infinite 20s linear;
   }
 }
+.MuiDialog-paper {
+  background-image: none !important;
+}
 
 img {
   border-radius: 0.25em;
