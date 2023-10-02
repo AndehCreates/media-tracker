@@ -1,5 +1,6 @@
 export const ShowData = [
   {
+    id: 'rec2q8GxvopMAupfY',
     AvailableSeason: 1,
     Image: 'https://i.imgur.com/Jd5t2xm.png',
     NewEpisodes: true,
@@ -11,6 +12,18 @@ export const ShowData = [
     AvailableEpisode: 29,
   },
   {
+    id: 'rec6Uqzk0L5rVtJY2',
+    AvailableSeason: 4,
+    Image: 'https://i.imgur.com/snQOWKR.png',
+    NewEpisodes: true,
+    Link: 'https://putlocker.pe/tv/watch-star-wars-rebels-online-39248',
+    CurrentSeason: 1,
+    Name: 'Star Wars Rebels',
+    CurrentEpisode: 0,
+    AvailableEpisode: 15,
+  },
+  {
+    id: 'rec7osIUv5NFuM6P3',
     AvailableSeason: 26,
     Image: 'https://i.imgur.com/oYQT1a3.png',
     Link: 'https://putlocker.pe/tv/watch-south-park-online-39503',
@@ -21,6 +34,7 @@ export const ShowData = [
     AvailableEpisode: 6,
   },
   {
+    id: 'rec7wYLAZfqFGQj01',
     AvailableSeason: 1,
     Image: 'https://i.imgur.com/1BB95mV.png',
     NewEpisodes: true,
@@ -32,17 +46,19 @@ export const ShowData = [
     AvailableEpisode: 3,
   },
   {
+    id: 'rec7xjVP85DNcV1I1',
     AvailableSeason: 1,
     Image: 'https://i.imgur.com/KWsupot.png',
     NewEpisodes: true,
     Link: 'https://putlocker.pe/tv/watch-krapopolis-online-100597',
     CurrentSeason: 1,
     Name: 'Krapopolis',
-    CurrentEpisode: 0,
+    CurrentEpisode: 2,
     Production: true,
     AvailableEpisode: 2,
   },
   {
+    id: 'rec86gFFMNFPo7Nt5',
     AvailableSeason: 1,
     Image: 'https://i.imgur.com/33gP1R8.png',
     NewEpisodes: true,
@@ -54,6 +70,7 @@ export const ShowData = [
     AvailableEpisode: 8,
   },
   {
+    id: 'rec95qP3vErRfllWQ',
     AvailableSeason: 34,
     Image: 'https://i.imgur.com/NDGDlsg.png',
     NewEpisodes: true,
@@ -65,6 +82,7 @@ export const ShowData = [
     AvailableEpisode: 22,
   },
   {
+    id: 'recBHijLyaKrSFW7p',
     AvailableSeason: 10,
     Image: 'https://i.imgur.com/yXtHmV4.png',
     NewEpisodes: true,
@@ -75,6 +93,7 @@ export const ShowData = [
     AvailableEpisode: 13,
   },
   {
+    id: 'recCk5PoUDMSQ4un0',
     AvailableSeason: 1,
     Image: 'https://i.imgur.com/j1TUrFz.png',
     NewEpisodes: true,
@@ -85,6 +104,7 @@ export const ShowData = [
     AvailableEpisode: 10,
   },
   {
+    id: 'recDd1OVNV3vZpsZS',
     AvailableSeason: 1,
     Image: 'https://i.imgur.com/53kTdPH.png',
     Link: 'https://putlocker.pe/tv/watch-invincible-online-68886',
@@ -94,6 +114,7 @@ export const ShowData = [
     AvailableEpisode: 8,
   },
   {
+    id: 'recFJ5L61CuvfItms',
     AvailableSeason: 6,
     Image: 'https://i.imgur.com/P47fiq1.png',
     Link: 'https://putlocker.pe/tv/watch-rick-and-morty-online-39480',
@@ -104,6 +125,7 @@ export const ShowData = [
     AvailableEpisode: 10,
   },
   {
+    id: 'recGwX4kvcqZHY2rX',
     AvailableSeason: 1,
     Image: 'https://i.imgur.com/U63xNdO.png',
     Link: 'https://putlocker.pe/tv/watch-one-piece-online-99826',
@@ -114,6 +136,7 @@ export const ShowData = [
     AvailableEpisode: 12,
   },
   {
+    id: 'recHIph5X1FdQAAus',
     AvailableSeason: 1,
     Image: 'https://i.imgur.com/ZmEJs0k.png',
     Link: 'https://putlocker.pe/tv/watch-the-continental-online-42270',
@@ -124,6 +147,7 @@ export const ShowData = [
     AvailableEpisode: 1,
   },
   {
+    id: 'recKciLJKafI1CdUW',
     AvailableSeason: 1,
     Image: 'https://i.imgur.com/74MBULw.png',
     NewEpisodes: true,
@@ -134,6 +158,7 @@ export const ShowData = [
     AvailableEpisode: 9,
   },
   {
+    id: 'recNkOi9ERauyjgyo',
     AvailableSeason: 4,
     Image: 'https://i.imgur.com/z8uzAlr.png',
     Link: 'https://putlocker.pe/tv/watch-harley-quinn-online-42243',
@@ -144,6 +169,7 @@ export const ShowData = [
     AvailableEpisode: 10,
   },
   {
+    id: 'recPITaYYM8HpRmq6',
     AvailableSeason: 1,
     Image: 'https://i.imgur.com/nxOLvxA.png',
     NewEpisodes: true,
@@ -154,6 +180,7 @@ export const ShowData = [
     AvailableEpisode: 13,
   },
   {
+    id: 'recTTaT1ZYhPK0JIA',
     AvailableSeason: 2,
     Image: 'https://i.imgur.com/smKwDDT.png',
     NewEpisodes: true,
@@ -164,6 +191,7 @@ export const ShowData = [
     AvailableEpisode: 20,
   },
   {
+    id: 'recVY3GqWp9FlC5XO',
     AvailableSeason: 1,
     Image: 'https://i.imgur.com/NwZS4qv.png',
     NewEpisodes: true,
@@ -175,6 +203,7 @@ export const ShowData = [
     AvailableEpisode: 10,
   },
   {
+    id: 'recWWDyNWHSXVnJKI',
     AvailableSeason: 1,
     Image: 'https://i.imgur.com/G7c9Fr4.png',
     NewEpisodes: true,
@@ -186,6 +215,7 @@ export const ShowData = [
     AvailableEpisode: 8,
   },
   {
+    id: 'recX5lV57kS3KZNoT',
     AvailableSeason: 3,
     Image: 'https://i.imgur.com/gsQZnoe.png',
     Link: 'https://putlocker.pe/tv/watch-the-boys-online-33895',
@@ -196,6 +226,7 @@ export const ShowData = [
     AvailableEpisode: 8,
   },
   {
+    id: 'recY3m7hPBYxihmNC',
     AvailableSeason: 11,
     Image: 'https://i.imgur.com/lGFQ9oR.png',
     Link: 'https://putlocker.pe/tv/watch-futurama-online-39387',
@@ -206,6 +237,7 @@ export const ShowData = [
     AvailableEpisode: 10,
   },
   {
+    id: 'recYbnxEAxaoGrq6V',
     AvailableSeason: 2,
     Image: 'https://i.imgur.com/NY5YK2x.png',
     NewEpisodes: true,
@@ -216,6 +248,7 @@ export const ShowData = [
     AvailableEpisode: 24,
   },
   {
+    id: 'recYmKo0yM2seMT3j',
     AvailableSeason: 4,
     Image: 'https://i.imgur.com/OCZCSLy.png',
     Link: 'https://putlocker.pe/tv/watch-solar-opposites-online-61106',
@@ -226,6 +259,7 @@ export const ShowData = [
     AvailableEpisode: 11,
   },
   {
+    id: 'recYz8h7ivdHsQoKi',
     AvailableSeason: 8,
     Image: 'https://i.imgur.com/PHPHDLm.png',
     NewEpisodes: true,
@@ -236,6 +270,7 @@ export const ShowData = [
     AvailableEpisode: 4,
   },
   {
+    id: 'recZNFSrsCEsnWkHh',
     AvailableSeason: 1,
     Image: 'https://i.imgur.com/UDEjgYK.png',
     NewEpisodes: true,
@@ -246,6 +281,7 @@ export const ShowData = [
     AvailableEpisode: 13,
   },
   {
+    id: 'recZpF0irRFWjIFC7',
     AvailableSeason: 2,
     Image: 'https://i.imgur.com/PbauBMS.png',
     Link: 'https://putlocker.pe/tv/watch-bleach-online-39484',
@@ -256,6 +292,7 @@ export const ShowData = [
     AvailableEpisode: 13,
   },
   {
+    id: 'recd5s90PD1vopGzH',
     AvailableSeason: 21,
     Image: 'https://i.imgur.com/Iu43UUF.png',
     NewEpisodes: true,
@@ -267,6 +304,7 @@ export const ShowData = [
     AvailableEpisode: 1076,
   },
   {
+    id: 'recdMQeEEaoGu1zpd',
     AvailableSeason: 1,
     Image: 'https://i.imgur.com/gHvIlA1.png',
     NewEpisodes: true,
@@ -277,6 +315,7 @@ export const ShowData = [
     AvailableEpisode: 10,
   },
   {
+    id: 'rece0avRrSo1ojYAx',
     AvailableSeason: 21,
     Image: 'https://i.imgur.com/gb03C7D.png',
     NewEpisodes: true,
@@ -288,6 +327,7 @@ export const ShowData = [
     AvailableEpisode: 20,
   },
   {
+    id: 'recfG7BpBMtzh9d9o',
     AvailableSeason: 1,
     Image: 'https://i.imgur.com/YDRnExH.png',
     Link: 'https://putlocker.pe/tv/watch-loki-online-42258',
@@ -297,6 +337,7 @@ export const ShowData = [
     AvailableEpisode: 6,
   },
   {
+    id: 'rechUbXwUeVhNmogb',
     AvailableSeason: 2,
     Image: 'https://i.imgur.com/tPPNLQ6.png',
     Link: 'https://putlocker.pe/tv/watch-inside-job-online-73513',
@@ -307,6 +348,7 @@ export const ShowData = [
     AvailableEpisode: 8,
   },
   {
+    id: 'reciB8K7WT8Ja7hDo',
     AvailableSeason: 20,
     Image: 'https://i.imgur.com/dE3SoTq.png',
     NewEpisodes: true,
@@ -318,6 +360,7 @@ export const ShowData = [
     AvailableEpisode: 13,
   },
   {
+    id: 'reciOyhXN4udZB5H4',
     AvailableSeason: 14,
     Image: 'https://i.imgur.com/XaJeFCG.png',
     NewEpisodes: true,
@@ -328,6 +371,7 @@ export const ShowData = [
     AvailableEpisode: 6,
   },
   {
+    id: 'recjPc1QqC8EGkmTA',
     AvailableSeason: 1,
     Image: 'https://i.imgur.com/Yp1vSGP.png',
     NewEpisodes: true,
@@ -338,6 +382,7 @@ export const ShowData = [
     AvailableEpisode: 4,
   },
   {
+    id: 'recjVxjkhCnCWa2da',
     AvailableSeason: 4,
     Image: 'https://i.imgur.com/jqcfGGr.png',
     NewEpisodes: true,
@@ -348,6 +393,7 @@ export const ShowData = [
     AvailableEpisode: 18,
   },
   {
+    id: 'recjqageFuugiyTv4',
     AvailableSeason: 4,
     Image: 'https://i.imgur.com/jIqV61f.png',
     Link: 'https://putlocker.pe/tv/watch-star-trek-lower-decks-online-62802',
@@ -358,6 +404,7 @@ export const ShowData = [
     AvailableEpisode: 5,
   },
   {
+    id: 'recnEG6YY1irw5BLp',
     AvailableSeason: 1,
     Image: 'https://i.imgur.com/1e5kXA2.png',
     Link: 'https://putlocker.pe/tv/watch-ahsoka-online-99550',
@@ -368,6 +415,7 @@ export const ShowData = [
     AvailableEpisode: 7,
   },
   {
+    id: 'reco8jzl8AeZMOuem',
     AvailableSeason: 3,
     Image: 'https://i.imgur.com/RH0e34Z.png',
     NewEpisodes: true,
@@ -378,6 +426,7 @@ export const ShowData = [
     AvailableEpisode: 12,
   },
   {
+    id: 'recqw0Qvw289BlDtS',
     AvailableSeason: 2,
     Image: 'https://i.imgur.com/PlQDb15.png',
     Link: 'https://putlocker.pe/tv/watch-onepunch-man-online-39463',
@@ -388,6 +437,7 @@ export const ShowData = [
     AvailableEpisode: 12,
   },
   {
+    id: 'recrGMRFUwG31J6re',
     AvailableSeason: 4,
     Image: 'https://i.imgur.com/BULetDD.png',
     Link: 'https://putlocker.pe/tv/watch-attack-on-titan-online-39339',
@@ -398,6 +448,7 @@ export const ShowData = [
     AvailableEpisode: 29,
   },
   {
+    id: 'recrrzU59xgat6kot',
     AvailableSeason: 3,
     Image: 'https://i.imgur.com/fRyoDzz.png',
     NewEpisodes: true,
@@ -408,6 +459,7 @@ export const ShowData = [
     AvailableEpisode: 13,
   },
   {
+    id: 'recunUdRYyUvPT0qd',
     AvailableSeason: 2,
     Image: 'https://i.imgur.com/pUEexIS.png',
     NewEpisodes: true,
@@ -422,6 +474,7 @@ export const ShowData = [
 
 export const MovieData = [
   {
+    id: 'recC51TJXUEofACmV',
     Rating: 5,
     Image: 'https://i.imgur.com/9eZBRfA.png',
     Duration: 9660,
@@ -430,12 +483,14 @@ export const MovieData = [
     Link: 'https://putlocker.pe/movie/watch-black-panther-ii-online-66672',
   },
   {
-    Name: 'M3gan',
-    Link: 'https://putlocker.pe/movie/watch-m3gan-online-91330',
+    id: 'recG483Gal2Fwz2bf',
     Image: 'https://i.imgur.com/KxTsk1r.png',
     Duration: 6120,
+    Name: 'M3gan',
+    Link: 'https://putlocker.pe/movie/watch-m3gan-online-91330',
   },
   {
+    id: 'recJ6gYObCbEUfC3w',
     Rating: 4,
     Image: 'https://i.imgur.com/ejmAz2l.png',
     Duration: 6240,
@@ -444,36 +499,42 @@ export const MovieData = [
     Link: 'https://putlocker.pe/movie/watch-puss-in-boots-the-last-wish-online-91342',
   },
   {
+    id: 'recObEC4NEmb22UGA',
     Image: 'https://i.imgur.com/aWmEVVk.png',
     Duration: 2640,
     Name: 'Star Wars Rebels: The Siege of Lothal',
     Link: 'https://putlocker.pe/movie/watch-star-wars-rebels-the-siege-of-lothal-online-54931',
   },
   {
+    id: 'recPSktknCvG8Jc9w',
     Image: 'https://i.imgur.com/3AZzMbC.png',
     Duration: 6300,
     Name: 'Jujutsu Kaisen 0',
     Link: 'https://putlocker.pe/movie/watch-jujutsu-kaisen-0-online-79504',
   },
   {
+    id: 'recrbS5qkRpWyDETE',
     Image: 'https://i.imgur.com/p3o7VKC.png',
     Duration: 7620,
     Name: 'Blue Beetle\n',
     Link: 'https://putlocker.pe/movie/watch-blue-beetle-online-99433',
   },
   {
-    Name: 'Dungeons and Dragons',
-    Link: 'https://putlocker.pe/movie/watch-dungeons-dragons-honor-among-thieves-online-94312',
+    id: 'recuAJTBtOdDqbxQp',
     Image: 'https://i.imgur.com/ne4nbMl.png',
     Duration: 8040,
+    Name: 'Dungeons and Dragons',
+    Link: 'https://putlocker.pe/movie/watch-dungeons-dragons-honor-among-thieves-online-94312',
   },
   {
+    id: 'recz8KGRnnvepBwyL',
     Image: 'https://i.imgur.com/Z3h9TfC.png',
     Duration: 5880,
     Name: 'Spy Kids: Armageddon',
     Link: 'https://putlocker.pe/watch-movie/watch-spy-kids-armageddon-online-100498.9937999',
   },
   {
+    id: 'reczkvQo8cnC8dKH0',
     Rating: 5,
     Image: 'https://i.imgur.com/Nf9KCdZ.png',
     Duration: 8100,
