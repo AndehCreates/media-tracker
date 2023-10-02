@@ -40,10 +40,12 @@ const EditDialog = ({ openDialog, editShow, onSave, onClose }) => {
       CurrentEpisode: parseInt(editedItem.CurrentEpisode),
       AvailableSeason: parseInt(editedItem.AvailableSeason),
       AvailableEpisode: parseInt(editedItem.AvailableEpisode),
-      ...editedItem.fields,
+      ...editedItem,
     };
     onSave(record);
     // const { id, ...fields } = editedItem;
+    console.log('saved:');
+    console.log(record);
     // console.log(id, fields);
     // onSave(id, fields);
     onClose();
