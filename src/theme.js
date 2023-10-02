@@ -37,6 +37,36 @@ export const themeOptions: ThemeOptions = {
       fontSize: '2rem',
     },
   },
+  components: {
+    // Name of the component
+    MuiPopover: {
+      styleOverrides: {
+        // Name of the slot
+        paper: {
+          // Some CSS
+          backgroundColor: 'none !important',
+        },
+        root: {
+          // Some CSS
+          backgroundColor: 'none !important',
+        },
+      },
+    },
+    MuiTooltip: {
+      styleOverrides: {
+        tooltip: {
+          backgroundColor: 'transparent',
+          fontSize: '1em',
+          color: '#00a821',
+          padding: '0px',
+          margin: '0px',
+        },
+        // popper: {
+        //   marginTop: '-300px',
+        // },
+      },
+    },
+  },
 };
 
 const theme = createTheme(themeOptions);

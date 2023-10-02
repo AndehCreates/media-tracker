@@ -21,6 +21,21 @@ body {
   background-image: none !important;
 }
 
+.MuiTooltip-popper {
+  margin-top: -350px !important;
+}
+/* .MuiTooltip-tooltip {
+  background-color: none !important;
+  font-size: 1em !important;
+  color: none !important;
+  padding: none !important;
+} */
+
+/* .MuiPopover-paper,
+.MuiPopover-root {
+  background-color: none !important;
+} */
+
 img {
   border-radius: 0.25em;
   border: solid;

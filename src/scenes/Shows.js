@@ -1,7 +1,15 @@
 // Shows.js
 
-import React from 'react';
-import { Badge, Grid, Box, Typography, Button } from '@mui/material';
+import React, { useState } from 'react';
+import {
+  Badge,
+  Grid,
+  Box,
+  Typography,
+  Button,
+  Popover,
+  Tooltip,
+} from '@mui/material';
 
 const Shows = ({ shows, onOpen, editShow }) => {
   function ShowCard({
@@ -23,6 +31,18 @@ const Shows = ({ shows, onOpen, editShow }) => {
     let remainingSeasons = AvailableSeason - CurrentSeason;
     let remainingEpisodes = AvailableEpisode - CurrentEpisode;
 
+    // hover display code before switching to tooltip
+    // const [displayShowDetails, setDisplayShowDetails] = useState(null);
+    // const handleShowHover = (e) => {
+    //   setDisplayShowDetails(e.currentTarget);
+    //   // display show info overlay
+    //   console.log(Name + ' hovered: ' + displayShowDetails);
+    // };
+    // const handleShowHoverClose = () => {
+    //   setDisplayShowDetails(null);
+    // };
+    // const open = Boolean(displayShowDetails);
+
     return (
       <Box
         className='card'
@@ -36,63 +56,107 @@ const Shows = ({ shows, onOpen, editShow }) => {
         borderRadius='.25em'
         sx={{
           //   'backgroundColor': 'primary.dark',
-          'opacity': [0.4, 0.4, 0.4],
+          'opacity': [0.7, 0.7, 0.7],
           '&:hover': {
             backgroundColor: '#052202',
             opacity: [0.9, 0.9, 0.9],
           },
         }}
       >
-        <Badge
-          badgeContent={remainingEpisodes}
-          color='success'
+        <Tooltip
+          //   leaveDelay={1000}
+          title={
+            <Box
+              className='cardText'
+              display='flex'
+              flexDirection='column'
+              justifyContent='center'
+              textAlign='center'
+              alignItems='center'
+              p='1.25em'
+              gap='.35em'
+              borderRadius='.25em'
+              backgroundColor='#000000b0'
+              minWidth='200px'
+            >
+              <Typography
+                fontSize='1.7em'
+                fontWeight='600'
+                lineHeight='1em'
+              >
+                {Name}
+              </Typography>
+              <Typography
+                fontSize='1.25em'
+                fontWeight='500'
+                lineHeight='1.5em'
+              >
+                Current: S {CurrentSeason} Ep {CurrentEpisode}
+                <br />
+                {remainingSeasons + remainingEpisodes == 0
+                  ? status !== 'archive' && 'Caught Up!'
+                  : 'Remaining: '}
+                {remainingSeasons == 0 ? '' : 'S ' + remainingSeasons + ' '}
+                {remainingEpisodes == 0 ? '' : 'Ep ' + remainingEpisodes}
+              </Typography>
+              <br />
+              <Button
+                onClick={() => onOpen(show)}
+                variant='contained'
+                color='success'
+                editShow={editShow}
+                show={show}
+              >
+                Edit
+              </Button>
+            </Box>
+          }
         >
-          <a
-            href={Link}
-            target='_blank'
-          >
-            <img
-              src={Image}
-              alt={Name}
-            />
-          </a>
-        </Badge>
-        <Box
-          className='cardText'
-          display='flex'
-          flexDirection='column'
-          justifyContent='center'
-          textAlign='center'
-          alignItems='center'
-          p='.25em'
-          gap='.35em'
-          borderRadius='.25em'
-        >
-          <Typography
-            fontSize='2em'
-            fontWeight='600'
-            lineHeight='1em'
-          >
-            {Name}
-          </Typography>
-          Current: S {CurrentSeason} Ep {CurrentEpisode}
-          <br />
-          {remainingSeasons + remainingEpisodes == 0
-            ? status !== 'archive' && 'Caught Up!'
-            : 'Remaining: '}
-          {remainingSeasons == 0 ? '' : 'S ' + remainingSeasons + ' '}
-          {remainingEpisodes == 0 ? '' : 'Ep ' + remainingEpisodes}
-          <br />
-          <Button
-            onClick={() => onOpen(show)}
-            variant='contained'
+          <Badge
+            badgeContent={remainingEpisodes}
             color='success'
-            editShow={editShow}
-            show={show}
           >
-            Edit
-          </Button>
-        </Box>
+            <a
+              href={Link}
+              target='_blank'
+            >
+              <img
+                src={Image}
+                alt={Name}
+                //   onMouseEnter={handleShowHover}
+                //   onMouseLeave={handleShowHoverClose}
+                show={show}
+              />
+            </a>
+          </Badge>
+        </Tooltip>
+        {/* {displayShowDetails && ( */}
+        {/* //   <Popover
+          //     anchorOrigin={{
+          //       vertical: 'center',
+          //       horizontal: 'center',
+          //     }}
+          //     transformOrigin={{
+          //       vertical: 'center',
+          //       horizontal: 'center',
+          //     }}
+          //     sx={{
+          //     //   pointerEvents: 'none',
+          //     }}
+          //     open={open}
+          //     onClose={handleShowHoverClose}
+          //     disableRestoreFocus
+          //     anchorEl={displayShowDetails}
+          //     slotProps={{
+          //       sx: {
+          //         backgroundColor: 'none', // Set your desired background color here
+          //       },
+          //     }}
+          //   > */}
+
+        {/* 
+          </Popover>
+        )} */}
       </Box>
     );
   }
@@ -193,10 +257,6 @@ const Shows = ({ shows, onOpen, editShow }) => {
   }
 
   return <ShowGrid />;
-};
-
-const handleShowHover = (show) => {
-  // display show info overlay
 };
 
 export default Shows;
