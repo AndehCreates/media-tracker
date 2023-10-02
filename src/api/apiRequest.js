@@ -8,33 +8,82 @@ const getShows = async () => {
   return new Promise((resolve, reject) => {
     base('Shows')
       .select()
-      .firstPage((err, records) => {
-        if (err) {
-          reject(err);
-        } else {
-          const shows = records.map((record) => record.fields);
-          console.log(shows);
-          resolve(shows);
-        }
-      });
+      .all()
+      .then((records) => {
+        const shows = records.map((record) => ({
+          id: record.id,
+          ...record.fields,
+        }));
+
+        resolve(shows);
+        console.log(shows);
+      })
+      .catch((err) => reject(err));
   });
 };
+
+//old getShows request ommits ID and maps the show fields as an array
+// const getShows = async () => {
+//   return new Promise((resolve, reject) => {
+//     base('Shows')
+//       .select()
+//       .firstPage((err, records) => {
+//         if (err) {
+//           reject(err);
+//         } else {
+//           const shows = records.map((record) => record.fields);
+//           console.log(shows);
+//           resolve(shows);
+//         }
+//       });
+//   });
+// };
+
+// const getMovies = async () => {
+//   return new Promise((resolve, reject) => {
+//     base('Movies')
+//       .select()
+//       .firstPage((err, records) => {
+//         if (err) {
+//           reject(err);
+//         } else {
+//           const movies = records.map((record) => record.fields);
+//           console.log(movies);
+//           resolve(movies);
+//         }
+//       });
+//   });
+// };
 
 const getMovies = async () => {
   return new Promise((resolve, reject) => {
     base('Movies')
       .select()
-      .firstPage((err, records) => {
-        if (err) {
-          reject(err);
-        } else {
-          const movies = records.map((record) => record.fields);
-          console.log(movies);
-          resolve(movies);
-        }
-      });
+      .all()
+      .then((records) => {
+        const movies = records.map((record) => ({
+          id: record.id,
+          ...record.fields,
+        }));
+
+        resolve(movies);
+        console.log(movies);
+      })
+      .catch((err) => reject(err));
   });
 };
 
+const updateShow = async (id, fields) => {
+  await base('Shows').update(
+    [
+      {
+        id,
+        fields,
+      },
+    ],
+    { typecast: true }
+  );
+};
+
 // Export functions
-export { getShows, getMovies };
+export { getShows, getMovies, updateShow };

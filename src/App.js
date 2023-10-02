@@ -2,29 +2,52 @@
 import './App.css';
 import Shows from './scenes/Shows';
 import Movies from './scenes/Movies';
-import { getShows, getMovies } from './api/apiRequest';
+import { getShows, getMovies, updateShow } from './api/apiRequest';
 import EditDialog from './components/EditDialog';
 import { MovieData, ShowData } from './data/data';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import theme from './theme';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ButtonGroup, Button, Box, Typography, Container } from '@mui/material';
 
 function App() {
   const [view, setView] = useState('shows');
-  // const [shows, setShows] = useState(JSON.parse(ShowData) || []);
-  const [shows, setShows] = useState(ShowData);
+  const [shows, setShows] = useState([]);
+  // const [shows, setShows] = useState(ShowData);
   const [movies, setMovies] = useState(MovieData);
   const [openDialog, setOpenDialog] = useState(false);
   const [editShow, setEditShow] = useState(null);
-  // const shows = ShowData;
-  // const movies = MovieData;
-  // console.log(shows);
+  const [fetchError, setFetchError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [rerender, setRerender] = useState({});
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const response = await getShows();
+        // if (!response.ok) throw Error('Did not recieve expected data');
+        const showItems = await response;
+        console.log(showItems);
+        setShows(showItems);
+        setFetchError(null);
+      } catch (err) {
+        console.log(err.stack);
+        setFetchError(err.message);
+      } finally {
+        setIsLoading(false);
+        console.log('Loaded: isLoading is False');
+        console.log(shows);
+      }
+    };
+    fetchItems();
+    // setTimeout(() => {
+    // }, 1000);
+  }, []);
 
   const handleOpen = (show) => {
-    setOpenDialog(true);
     setEditShow(show);
+    setOpenDialog(true);
     console.log('handleOpen triggered');
     console.log(show);
   };
@@ -35,21 +58,71 @@ function App() {
     console.log('handleClose triggered');
   };
 
-  const handleSaveEdit = (editShow) => {
+  const handleSaveEdit = async (record) => {
     // save + FETCH logic
+
     console.log('handleSaveEdit triggered');
-    setOpenDialog(false);
-    setEditShow(null);
+    const { id, ...fields } = record;
+    console.log('record: ' + record.id);
+    console.log(record.fields);
+    await updateShow(id, fields);
+
+    // Update show
+    const updatedShows = shows.map((show) => {
+      if (show.id === id) {
+        // Return updated show fields
+        return { ...show, ...fields };
+      } else {
+        return show;
+      }
+    });
+
+    sortShows(updatedShows); // resort shows
+
+    // update shows state
+    setShows(updatedShows);
+
+    setRerender({}); // force re-render
+
+    // await updateShow(editedShow.id, editedShow);
+
+    // const updatedShows = shows.map((s) => {
+    //   if (s.id === editedShow.id) {
+    //     return editedShow;
+    //   } else {
+    //     return s;
+    //   }
+    // });
+
+    // setShows(updatedShows);
+
+    // setOpenDialog(false);
+    // setEditShow(null);
+  };
+
+  const sortShows = (shows) => {
+    const sortedShows = shows.map((show) => {
+      let status;
+
+      if (show.NewEpisodes && show.Production) {
+        status = 'new';
+      } else if (show.NewEpisodes && !show.Production) {
+        status = 'backlog';
+      } else if (!show.NewEpisodes && show.Production) {
+        status = 'updated';
+      } else {
+        status = 'archive';
+      }
+
+      return {
+        ...show,
+        status,
+      };
+    });
   };
 
   return (
     <>
-      <head>
-        <meta
-          name='viewport'
-          content='initial-scale=1, width=device-width'
-        />
-      </head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Container
@@ -99,6 +172,12 @@ function App() {
                 Movies
               </Button>
             </ButtonGroup>
+
+            {isLoading && <>Loading Items...</>}
+            {fetchError && (
+              <p style={{ color: 'red' }}>{`Error: ${fetchError}`}</p>
+            )}
+            {!fetchError && !isLoading && 'loaded!'}
 
             {view === 'shows' && (
               <Shows

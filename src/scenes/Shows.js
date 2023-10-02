@@ -13,6 +13,7 @@ import {
 
 const Shows = ({ shows, onOpen, editShow }) => {
   function ShowCard({
+    id,
     Name,
     CurrentSeason,
     CurrentEpisode,

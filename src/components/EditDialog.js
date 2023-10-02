@@ -16,7 +16,7 @@ import {
 
 const EditDialog = ({ openDialog, editShow, onSave, onClose }) => {
   const [editedItem, setEditedItem] = useState(editShow);
-
+  const id = editShow.id;
   // console.log('triggered edit');
   // const [editedShow, setEditedShow] = useState(show);
 
@@ -34,7 +34,18 @@ const EditDialog = ({ openDialog, editShow, onSave, onClose }) => {
   };
 
   const handleSave = () => {
-    onSave(editedItem);
+    const record = {
+      id: editedItem.id,
+      CurrentSeason: parseInt(editedItem.CurrentSeason),
+      CurrentEpisode: parseInt(editedItem.CurrentEpisode),
+      AvailableSeason: parseInt(editedItem.AvailableSeason),
+      AvailableEpisode: parseInt(editedItem.AvailableEpisode),
+      ...editedItem.fields,
+    };
+    onSave(record);
+    // const { id, ...fields } = editedItem;
+    // console.log(id, fields);
+    // onSave(id, fields);
     onClose();
   };
 
@@ -53,7 +64,7 @@ const EditDialog = ({ openDialog, editShow, onSave, onClose }) => {
             onChange={handleChange('Name')}
             variant='outlined'
             // defaultValue={editedItem.Name}
-            fullWidth='true'
+            fullWidth={true}
           />
           <Box
             display='flex'
@@ -103,14 +114,14 @@ const EditDialog = ({ openDialog, editShow, onSave, onClose }) => {
             label='Link'
             value={editedItem.Link}
             onChange={handleChange('Link')}
-            fullWidth='true'
+            fullWidth={true}
           />
 
           <TextField
             label='Image'
             value={editedItem.Image}
             onChange={handleChange('Image')}
-            fullWidth='true'
+            fullWidth={true}
           />
           <FormGroup>
             <Box
@@ -118,20 +129,23 @@ const EditDialog = ({ openDialog, editShow, onSave, onClose }) => {
               justifyContent='space-between'
             >
               <FormControlLabel
-                control={<Switch defaultChecked />}
+                control={<Switch />}
+                checked={editedItem.Production}
                 label='Production'
                 onClick={() => handleSwitch('Production')}
               />
               <FormControlLabel
                 control={<Switch />}
-                label='Archive'
-                onClick={() => handleSwitch('Archive')}
-              />
-              <FormControlLabel
-                control={<Switch />}
+                checked={editedItem.NewEpisodes}
                 label='NewEpisodes'
                 onClick={() => handleSwitch('NewEpisodes')}
                 sx={{ marginRight: '0' }}
+              />
+              <FormControlLabel
+                control={<Switch />}
+                checked={editedItem.Archive}
+                label='Archive'
+                onClick={() => handleSwitch('Archive')}
               />
             </Box>
           </FormGroup>
@@ -157,7 +171,7 @@ const EditDialog = ({ openDialog, editShow, onSave, onClose }) => {
       <DialogActions>
         <Button onClick={onClose}>Cancel</Button>
 
-        <Button onClick={() => onSave(editedItem)}>Save</Button>
+        <Button onClick={() => handleSave(editedItem)}>Save</Button>
       </DialogActions>
     </Dialog>
   );
