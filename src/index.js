@@ -6,12 +6,12 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <head>
+    {/* <head>
       <meta
         name='viewport'
         content='initial-scale=1, width=device-width'
       />
-    </head>
+    </head> */}
     <App />
   </React.StrictMode>
 );
