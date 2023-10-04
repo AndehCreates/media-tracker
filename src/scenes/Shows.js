@@ -1,15 +1,7 @@
 // Shows.js
 
 import React, { useState } from 'react';
-import {
-  Badge,
-  Grid,
-  Box,
-  Typography,
-  Button,
-  Popover,
-  Tooltip,
-} from '@mui/material';
+import { Badge, Grid, Box, Typography, Button, Tooltip } from '@mui/material';
 
 const Shows = ({ shows, onOpen, editShow }) => {
   function ShowCard({
