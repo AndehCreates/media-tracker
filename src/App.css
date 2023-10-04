@@ -19,6 +19,7 @@ body {
 }
 .MuiDialog-paper {
   background-image: none !important;
+  min-width: 500px;
 }
 
 .MuiTooltip-popper {

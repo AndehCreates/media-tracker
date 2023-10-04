@@ -1,20 +1,9 @@
 // MovieList.js
 
 import React from 'react';
-import {
-  List,
-  ListItem,
-  ListItemText,
-  ListItemAvatar,
-  Avatar,
-  Grid,
-  Rating,
-  Box,
-  Button,
-  Typography,
-} from '@mui/material';
+import { Grid, Rating, Box, Button, Typography } from '@mui/material';
 
-const Movies = ({ movies }) => {
+const Movies = ({ movies, onOpen, editMovie }) => {
   function secondsToHms(d) {
     d = Number(d);
     let h = Math.floor(d / 3600);
@@ -27,7 +16,7 @@ const Movies = ({ movies }) => {
     return hDisplay + mDisplay.padStart(2, '0') + sDisplay;
   }
 
-  function MovieCard({ name, duration, image, link, watched, rating }) {
+  function MovieCard({ movie, name, duration, image, link, watched, rating }) {
     return (
       <Box
         className='card'
@@ -83,11 +72,20 @@ const Movies = ({ movies }) => {
             Watch
           </Button>
         )}
+        <Button
+          onClick={() => onOpen(movie)}
+          variant='contained'
+          color='success'
+          editMovie={editMovie}
+          movie={movie}
+        >
+          Edit
+        </Button>
       </Box>
     );
   }
 
-  function MovieGrid() {
+  function MovieGrid({ movies }) {
     const newMovies = movies.filter((s) => s.Watched !== true);
     const watchedMovies = movies.filter((s) => s.Watched === true);
     // console.log(newMovies);
@@ -98,6 +96,8 @@ const Movies = ({ movies }) => {
         spacing={3}
         justifyContent='center'
         p='2em'
+        display='flex'
+        flexDirection='column'
       >
         <Box
           display='flex'
@@ -128,10 +128,13 @@ const Movies = ({ movies }) => {
                 key={Name}
               >
                 <MovieCard
-                  key={Name + 'new'}
+                  key={movie.id}
+                  movie={movie}
+                  {...movie}
+                  onOpen={onOpen}
                   name={Name}
                   duration={Duration}
-                  //   image={Image}
+                  image={Image}
                   link={Link}
                   watched={Watched}
                   rating={Rating}
@@ -169,10 +172,13 @@ const Movies = ({ movies }) => {
                 key={Name}
               >
                 <MovieCard
-                  key={Name + 'watched'}
+                  key={movie.id}
+                  movie={movie}
+                  {...movie}
+                  onOpen={onOpen}
                   name={Name}
                   duration={Duration}
-                  //   image={Image}
+                  image={Image}
                   link={Link}
                   watched={Watched}
                   rating={Rating}
@@ -185,7 +191,7 @@ const Movies = ({ movies }) => {
     );
   }
 
-  return <MovieGrid />;
+  return <MovieGrid movies={movies} />;
 };
 
 const handleMovieHover = (movie) => {

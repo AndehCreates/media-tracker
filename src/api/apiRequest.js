@@ -85,5 +85,17 @@ const updateShow = async (id, fields) => {
   );
 };
 
+const updateMovie = async (id, fields) => {
+  await base('Movies').update(
+    [
+      {
+        id,
+        fields,
+      },
+    ],
+    { typecast: true }
+  );
+};
+
 // Export functions
-export { getShows, getMovies, updateShow };
+export { getShows, getMovies, updateShow, updateMovie };
