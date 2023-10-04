@@ -64,7 +64,7 @@ function App() {
     console.log('handleSaveEdit triggered');
     const { id, ...fields } = record;
     console.log('record: ' + record.id);
-    console.log(record.fields);
+    // console.log(record.fields);
     await updateShow(id, fields);
 
     // Update show

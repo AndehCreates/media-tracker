@@ -17,6 +17,12 @@ import {
 const EditDialog = ({ openDialog, editShow, onSave, onClose }) => {
   const [editedItem, setEditedItem] = useState(editShow);
   const id = editShow.id;
+  const [checked, setChecked] = useState({
+    Production: editShow.Production || false,
+    NewEpisodes: editShow.NewEpisodes || false,
+    Archive: editShow.Archive || false,
+  });
+  // console.log(checked);
   // console.log('triggered edit');
   // const [editedShow, setEditedShow] = useState(show);
 
@@ -25,12 +31,27 @@ const EditDialog = ({ openDialog, editShow, onSave, onClose }) => {
       ...editedItem,
       [field]: event.target.value,
     });
-    console.log(editedItem);
+    // console.log(editedItem);
   };
 
-  const handleSwitch = (field) => {
-    setEditedItem({ ...editedItem, [field]: !editedItem[field] });
-    console.log(editedItem);
+  // const handleSwitch = (field) => {
+  //   setEditedItem({ ...editedItem, [field]: !editedItem[field] });
+  //   console.log(editedItem);
+  // };
+
+  //switch handler
+  const handleCheckedChange = (name) => (event) => {
+    setChecked({
+      ...checked,
+      [name]: event.target.checked,
+    });
+    // console.log(checked);
+    // setEditedItem({
+    //   ...checked,
+    //   ...editedItem,
+    //   // [name]: event.target.value,
+    // });
+    // console.log(editedItem);
   };
 
   const handleSave = () => {
@@ -41,6 +62,9 @@ const EditDialog = ({ openDialog, editShow, onSave, onClose }) => {
       AvailableSeason: parseInt(editedItem.AvailableSeason),
       AvailableEpisode: parseInt(editedItem.AvailableEpisode),
       ...editedItem,
+      Production: checked.Production,
+      NewEpisodes: checked.NewEpisodes,
+      Archive: checked.Archive,
     };
     onSave(record);
     // const { id, ...fields } = editedItem;
@@ -132,42 +156,25 @@ const EditDialog = ({ openDialog, editShow, onSave, onClose }) => {
             >
               <FormControlLabel
                 control={<Switch />}
-                checked={editedItem.Production}
+                checked={checked.Production}
                 label='Production'
-                onClick={() => handleSwitch('Production')}
+                onClick={handleCheckedChange('Production')}
               />
               <FormControlLabel
                 control={<Switch />}
-                checked={editedItem.NewEpisodes}
-                label='NewEpisodes'
-                onClick={() => handleSwitch('NewEpisodes')}
+                checked={checked.NewEpisodes}
+                label='New Episodes'
+                onClick={handleCheckedChange('NewEpisodes')}
                 sx={{ marginRight: '0' }}
               />
               <FormControlLabel
                 control={<Switch />}
-                checked={editedItem.Archive}
+                checked={checked.Archive}
                 label='Archive'
-                onClick={() => handleSwitch('Archive')}
+                onClick={handleCheckedChange('Archive')}
               />
             </Box>
           </FormGroup>
-          {/* <Switch
-          label='Production'
-          checked={editedItem.Production}
-          onClick={() => handleSwitch('Production')}
-        />
-
-        <Switch
-          label='Archive'
-          checked={editedItem.Production}
-          onClick={() => handleSwitch('Archive')}
-        />
-
-        <Switch
-          label='New Episodes'
-          checked={editedItem.NewEpisodes}
-          onClick={() => handleSwitch('NewEpisodes')}
-        /> */}
         </Box>
       </DialogContent>
       <DialogActions>
