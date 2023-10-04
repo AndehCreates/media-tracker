@@ -6,12 +6,20 @@ Show and Movie Tracker
 TO DO:
 
 [x] Working on Edit Dialog integration
-[] flesh out edit dialog optiops for shows
-[] Dialog options for movies
+[x] flesh out edit dialog optionss for shows
+[x] Dialog options for movies
+    [x] reading data
+    [x] set up edit button
+    [x] set up update dialog
 [] Set up API CRUD operations
-[] Set up API error handling
+    [x] [R + U] shows
+    [] [create] shows + movies
+    [] [delete] shows + movies
+[-] Set up API error handling
 [] API to local storage for offline use
-[] Switch data off of static
+    [] online/offline API switch
+[x] Switch data off of static
+[] migrate to NextJS - routing + deduped data
 
 Done
 [x] Set up API fetch w/ Airtable
