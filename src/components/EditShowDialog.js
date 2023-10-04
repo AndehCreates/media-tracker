@@ -1,4 +1,4 @@
-// EditDialog.js
+// EditShowDialog.js
 
 import React, { useState } from 'react';
 import {
@@ -14,7 +14,7 @@ import {
   Box,
 } from '@mui/material';
 
-const EditDialog = ({ openDialog, editShow, onSave, onClose }) => {
+const EditShowDialog = ({ openDialog, editShow, onSave, onClose }) => {
   const [editedItem, setEditedItem] = useState(editShow);
   const id = editShow.id;
   const [checked, setChecked] = useState({
@@ -77,7 +77,7 @@ const EditDialog = ({ openDialog, editShow, onSave, onClose }) => {
 
   return (
     <Dialog open={openDialog}>
-      <DialogTitle>Edit {editShow.name}</DialogTitle>
+      <DialogTitle>Edit {editShow.Name}</DialogTitle>
       <DialogContent sx={{ paddingTop: '.5em !important' }}>
         <Box
           display='flex'
@@ -186,4 +186,4 @@ const EditDialog = ({ openDialog, editShow, onSave, onClose }) => {
   );
 };
 
-export default EditDialog;
+export default EditShowDialog;
