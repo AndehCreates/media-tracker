@@ -179,7 +179,6 @@ const EditShowDialog = ({ openDialog, editShow, onSave, onClose }) => {
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Cancel</Button>
-
         <Button onClick={() => handleSave(editedItem)}>Save</Button>
       </DialogActions>
     </Dialog>
