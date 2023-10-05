@@ -22,10 +22,16 @@ export default function CreateShowDialog({ open, onCreate, onCancel }) {
     Link: '',
     Image: '',
     Production: false,
+    NewEpisodes: false,
+    Archive: false,
   });
 
-  const handleChange = (field) => (evt) => {
+  const handleInputChange = (field) => (evt) => {
     setForm({ ...form, [field]: evt.target.value });
+  };
+
+  const handleSwitchChange = (field) => (checked) => {
+    setForm({ ...form, [field]: checked });
   };
 
   const handleSubmit = () => {
@@ -39,6 +45,8 @@ export default function CreateShowDialog({ open, onCreate, onCancel }) {
       Link: '',
       Image: '',
       Production: false,
+      NewEpisodes: false,
+      Archive: false,
     });
   };
 
@@ -54,7 +62,7 @@ export default function CreateShowDialog({ open, onCreate, onCancel }) {
           <TextField
             label='Name'
             value={form.Name}
-            onChange={handleChange('Name')}
+            onChange={handleInputChange('Name')}
           />
           <Box
             display='flex'
@@ -63,14 +71,14 @@ export default function CreateShowDialog({ open, onCreate, onCancel }) {
             <TextField
               label='Current Season'
               value={form.CurrentSeason}
-              onChange={handleChange('CurrentSeason')}
+              onChange={handleInputChange('CurrentSeason')}
               type='number'
             />
 
             <TextField
               label='Current Episode'
               value={form.CurrentEpisode}
-              onChange={handleChange('CurrentEpisode')}
+              onChange={handleInputChange('CurrentEpisode')}
               type='number'
             />
           </Box>
@@ -81,14 +89,14 @@ export default function CreateShowDialog({ open, onCreate, onCancel }) {
             <TextField
               label='Available Seasons'
               value={form.AvailableSeason}
-              onChange={handleChange('AvailableSeason')}
+              onChange={handleInputChange('AvailableSeason')}
               type='number'
             />
 
             <TextField
               label='Available Episodes'
               value={form.AvailableEpisode}
-              onChange={handleChange('AvailableEpisode')}
+              onChange={handleInputChange('AvailableEpisode')}
               type='number'
             />
           </Box>
@@ -96,13 +104,13 @@ export default function CreateShowDialog({ open, onCreate, onCancel }) {
           <TextField
             label='Link'
             value={form.Link}
-            onChange={handleChange('Link')}
+            onChange={handleInputChange('Link')}
           />
 
           <TextField
             label='Image URL'
             value={form.Image}
-            onChange={handleChange('Image')}
+            onChange={handleInputChange('Image')}
           />
 
           {/* <Switch
@@ -128,20 +136,24 @@ export default function CreateShowDialog({ open, onCreate, onCancel }) {
                 control={<Switch />}
                 checked={form.Production}
                 label='Production'
-                onClick={handleChange('Production')}
+                onClick={() =>
+                  handleSwitchChange('Production')(!form.Production)
+                }
               />
               <FormControlLabel
                 control={<Switch />}
                 checked={form.NewEpisodes}
                 label='New Episodes'
-                onClick={handleChange('NewEpisodes')}
+                onClick={() =>
+                  handleSwitchChange('NewEpisodes')(!form.NewEpisodes)
+                }
                 sx={{ marginRight: '0' }}
               />
               <FormControlLabel
                 control={<Switch />}
                 checked={form.Archive}
                 label='Archive'
-                onClick={handleChange('Archive')}
+                onClick={() => handleSwitchChange('Archive')(!form.Archive)}
               />
             </Box>
           </FormGroup>

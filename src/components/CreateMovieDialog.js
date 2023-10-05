@@ -21,8 +21,12 @@ export default function CreateMovieDialog({ open, onCreate, onCancel }) {
     Watched: false,
   });
 
-  const handleChange = (field) => (evt) => {
+  const handleInputChange = (field) => (evt) => {
     setForm({ ...form, [field]: evt.target.value });
+  };
+
+  const handleSwitchChange = (field) => (checked) => {
+    setForm({ ...form, [field]: checked });
   };
 
   const handleSubmit = () => {
@@ -48,32 +52,32 @@ export default function CreateMovieDialog({ open, onCreate, onCancel }) {
         <TextField
           label='Name'
           value={form.Name}
-          onChange={handleChange('Name')}
+          onChange={handleInputChange('Name')}
         />
 
         <TextField
           label='Duration'
           value={form.Duration}
-          onChange={handleChange('Duration')}
+          onChange={handleInputChange('Duration')}
           type='number'
         />
 
         <TextField
           label='Link'
           value={form.Link}
-          onChange={handleChange('Link')}
+          onChange={handleInputChange('Link')}
         />
 
         <TextField
           label='Image URL'
           value={form.Image}
-          onChange={handleChange('Image')}
+          onChange={handleInputChange('Image')}
         />
 
         <TextField
           label='Rating'
           value={form.Rating}
-          onChange={handleChange('Rating')}
+          onChange={handleInputChange('Rating')}
           type='number'
         />
 
@@ -85,7 +89,7 @@ export default function CreateMovieDialog({ open, onCreate, onCancel }) {
           control={<Switch />}
           checked={form.Watched}
           label='Watched'
-          onClick={handleChange('Watched')}
+          onClick={() => handleSwitchChange('Watched')(!form.Watched)}
         />
         <DialogActions>
           <Button onClick={onCancel}>Cancel</Button>
