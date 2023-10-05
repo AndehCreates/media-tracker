@@ -97,5 +97,34 @@ const updateMovie = async (id, fields) => {
   );
 };
 
+const createShow = async (fields) => {
+  await base('Shows').create(
+    [
+      {
+        fields,
+      },
+    ],
+    { typecast: true }
+  );
+};
+
+const createMovie = async (fields) => {
+  await base('Movies').create(
+    [
+      {
+        fields,
+      },
+    ],
+    { typecast: true }
+  );
+};
+
 // Export functions
-export { getShows, getMovies, updateShow, updateMovie };
+export {
+  getShows,
+  getMovies,
+  updateShow,
+  updateMovie,
+  createShow,
+  createMovie,
+};

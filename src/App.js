@@ -2,7 +2,14 @@
 import './App.css';
 import Shows from './scenes/Shows';
 import Movies from './scenes/Movies';
-import { getShows, getMovies, updateShow, updateMovie } from './api/apiRequest';
+import {
+  getShows,
+  getMovies,
+  updateShow,
+  updateMovie,
+  createShow,
+  createMovie,
+} from './api/apiRequest';
 import EditShowDialog from './components/EditShowDialog';
 import EditMovieDialog from './components/EditMovieDialog';
 // import { MovieData, ShowData } from './data/data';
@@ -11,6 +18,8 @@ import theme from './theme';
 
 import React, { useEffect, useState } from 'react';
 import { ButtonGroup, Button, Box, Typography, Container } from '@mui/material';
+import CreateShowDialog from './components/CreateShowDialog';
+import CreateMovieDialog from './components/CreateMovieDialog';
 
 function App() {
   const [view, setView] = useState('shows');
@@ -24,6 +33,8 @@ function App() {
   const [fetchError, setFetchError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [rerender, setRerender] = useState({});
+  const [openCreateShow, setOpenCreateShow] = useState(false);
+  const [openCreateMovie, setOpenCreateMovie] = useState(false);
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -77,6 +88,28 @@ function App() {
     setOpenDialog(false);
     setEditMovie(null);
     console.log('handleCloseMovie triggered');
+  };
+
+  const handleCloseCreateDialog = () => {
+    setOpenCreateShow(false);
+    setOpenCreateMovie(false);
+    console.log('handleCloseCreateDialog triggered');
+  };
+
+  const handleCreateShow = async (newShow) => {
+    console.log(newShow);
+    await createShow(newShow); // API call
+
+    setShows([...shows, newShow]); // add to state
+    setOpenCreateShow(false); // close dialog
+  };
+
+  const handleCreateMovie = async (newMovie) => {
+    console.log(newMovie);
+    await createMovie(newMovie); // API call
+
+    setMovies([...movies, newMovie]); // add to state
+    setOpenCreateMovie(false); // close dialog
   };
 
   const handleSaveEditedShow = async (record) => {
@@ -174,10 +207,14 @@ function App() {
           }}
         >
           {/* Shows or Movies */}
-          Show/Movie View: {view}
+          {/* Show/Movie View: {view} */}
           <ButtonGroup>
             <Button onClick={(e) => getShows()}>Get Shows</Button>
             <Button onClick={(e) => getMovies()}>Get Movies</Button>
+          </ButtonGroup>
+          <ButtonGroup>
+            <Button onClick={() => setOpenCreateShow(true)}>Add Show</Button>
+            <Button onClick={() => setOpenCreateMovie(true)}>Add Movie</Button>
           </ButtonGroup>
           <Box
             sx={{ p: 2 }}
@@ -255,6 +292,16 @@ function App() {
                 openDialog={openDialog}
               />
             )}
+            <CreateShowDialog
+              open={openCreateShow}
+              onCreate={handleCreateShow}
+              onCancel={handleCloseCreateDialog}
+            />
+            <CreateMovieDialog
+              open={openCreateMovie}
+              onCreate={handleCreateMovie}
+              onCancel={handleCloseCreateDialog}
+            />
           </Box>
         </Container>
       </ThemeProvider>
