@@ -49,6 +49,7 @@ export default function CreateShowDialog({ open, onCreate, onCancel }) {
           display='flex'
           flexDirection='column'
           gap='.5em'
+          padding='1em'
         >
           <TextField
             label='Name'
