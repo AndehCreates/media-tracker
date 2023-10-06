@@ -16,13 +16,13 @@ export default function CreateShowDialog({ open, onCreate, onCancel }) {
   const [form, setForm] = useState({
     Name: '',
     CurrentSeason: 1,
-    CurrentEpisode: 1,
+    CurrentEpisode: 0,
     AvailableSeason: 1,
     AvailableEpisode: 1,
     Link: '',
     Image: '',
     Production: false,
-    NewEpisodes: false,
+    NewEpisodes: true,
     Archive: false,
   });
 
@@ -39,13 +39,13 @@ export default function CreateShowDialog({ open, onCreate, onCancel }) {
     setForm({
       Name: '',
       CurrentSeason: 1,
-      CurrentEpisode: 1,
+      CurrentEpisode: 0,
       AvailableSeason: 1,
       AvailableEpisode: 1,
       Link: '',
       Image: '',
       Production: false,
-      NewEpisodes: false,
+      NewEpisodes: true,
       Archive: false,
     });
   };
