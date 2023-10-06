@@ -16,7 +16,7 @@ const getShows = async () => {
         }));
 
         resolve(shows);
-        console.log(shows);
+        // console.log(shows);
       })
       .catch((err) => reject(err));
   });
@@ -67,7 +67,7 @@ const getMovies = async () => {
         }));
 
         resolve(movies);
-        console.log(movies);
+        // console.log(movies);
       })
       .catch((err) => reject(err));
   });
