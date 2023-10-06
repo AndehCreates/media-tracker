@@ -44,12 +44,13 @@ const Shows = ({ shows, onOpen, editShow }) => {
         justifyContent='center'
         textAlign='center'
         alignItems='center'
-        p='1em'
-        gap='.75em'
+        flexGrow='0'
+        p='.5em'
+        // gap='.75em'
         borderRadius='.25em'
         sx={{
           //   'backgroundColor': 'primary.dark',
-          'opacity': [0.7, 0.7, 0.7],
+          'opacity': [0.6, 0.6, 0.6],
           '&:hover': {
             backgroundColor: '#052202',
             opacity: [0.9, 0.9, 0.9],
@@ -73,7 +74,7 @@ const Shows = ({ shows, onOpen, editShow }) => {
               minWidth='200px'
             >
               <Typography
-                fontSize='1.7em'
+                fontSize='1.5em'
                 fontWeight='600'
                 lineHeight='1em'
               >
@@ -82,7 +83,7 @@ const Shows = ({ shows, onOpen, editShow }) => {
               <Typography
                 fontSize='1.25em'
                 fontWeight='500'
-                lineHeight='1.5em'
+                // lineHeight='1.5em'
               >
                 Current: S {CurrentSeason} Ep {CurrentEpisode}
                 <br />
@@ -92,7 +93,7 @@ const Shows = ({ shows, onOpen, editShow }) => {
                 {remainingSeasons == 0 ? '' : 'S ' + remainingSeasons + ' '}
                 {remainingEpisodes == 0 ? '' : 'Ep ' + remainingEpisodes}
               </Typography>
-              <br />
+              {/* <br /> */}
               <Button
                 onClick={() => onOpen(show)}
                 variant='contained'
@@ -180,10 +181,12 @@ const Shows = ({ shows, onOpen, editShow }) => {
       <Box
         display='flex'
         flexDirection='column'
+        pt='1em'
+        flexGrow='0'
       >
         <Typography
           textAlign='center'
-          fontSize='3em'
+          fontSize='2em'
           fontWeight='700'
         >
           {status == 'new' && 'Running, Available!'}
@@ -195,23 +198,25 @@ const Shows = ({ shows, onOpen, editShow }) => {
           display='flex'
           flexDirection='row'
           flexWrap='wrap'
+          justifyContent='center'
           //   gap='.1em'
         >
           {shows.map((show) => (
-            <Grid
-              item
-              xs={12}
-              sm={4}
-              md={3}
-              //   p='.05em'
-            >
-              <ShowCard
-                key={show.id}
-                show={show}
-                {...show}
-                onOpen={onOpen}
-              />
-            </Grid>
+            // <Grid
+            //   // item
+            //   xs={12}
+            //   sm
+            //   md
+            //   lg
+            //   //   p='.05em'
+            // >
+            <ShowCard
+              key={show.id}
+              show={show}
+              {...show}
+              onOpen={onOpen}
+            />
+            // </Grid>
           ))}
         </Box>
       </Box>
@@ -226,10 +231,9 @@ const Shows = ({ shows, onOpen, editShow }) => {
 
     return (
       <Grid
-        container
-        spacing={3}
+        // container
+        spacing={4}
         justifyContent='center'
-        p='2em'
       >
         {statuses.map((status, i) => {
           const filteredShows = sortedShows.filter(

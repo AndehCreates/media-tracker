@@ -39,15 +39,23 @@ function App() {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const showResponse = await getShows();
-        const movieResponse = await getMovies();
+        const showResponse = getShows();
+        const movieResponse = getMovies();
         // if (!response.ok) throw Error('Did not recieve expected data');
-        const showItems = await showResponse;
-        const movieItems = await movieResponse;
+        // const showItemsPromise = await showResponse;
+        // const movieItemsPromise = await movieResponse;
+
+        //update to parallel request
+        const [showItems, movieItems] = await Promise.all([
+          showResponse,
+          movieResponse,
+        ]);
         // console.log(showItems);
         // console.log(movieItems);
         setShows(showItems);
         setMovies(movieItems);
+        console.log(shows);
+        console.log(movies);
         setFetchError(null);
       } catch (err) {
         console.log(err.stack);
@@ -55,8 +63,6 @@ function App() {
       } finally {
         setIsLoading(false);
         console.log('Loaded: isLoading is False');
-        console.log(movies);
-        console.log(shows);
       }
     };
     fetchItems();
@@ -200,59 +206,69 @@ function App() {
           sx={{
             backgroundColor: '#000',
             height: '100vh',
-            maxWidth: '100vw',
+            // maxWidth: '100vw',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            textAlign: 'center',
           }}
         >
           {/* Shows or Movies */}
           {/* Show/Movie View: {view} */}
-          <ButtonGroup>
+          {/* <ButtonGroup>
             <Button onClick={(e) => getShows()}>Get Shows</Button>
             <Button onClick={(e) => getMovies()}>Get Movies</Button>
-          </ButtonGroup>
-          <ButtonGroup>
-            <Button onClick={() => setOpenCreateShow(true)}>Add Show</Button>
-            <Button onClick={() => setOpenCreateMovie(true)}>Add Movie</Button>
-          </ButtonGroup>
+          </ButtonGroup> */}
           <Box
-            sx={{ p: 2 }}
+            // sx={{ p: 2 }}
             display='flex'
             flexDirection='column'
             justifyContent='center'
-            width='90vw'
+            width='95vw'
             alignItems='center'
-            gap='1em'
+            gap='.5em'
           >
             <Typography
               fontWeight='900'
-              fontSize='3.5em'
+              fontSize='3em'
             >
               Media Tracker
             </Typography>
-            <ButtonGroup>
-              <Button
-                // color='success'
-                variant={view === 'shows' ? 'contained' : 'outlined'}
-                onClick={() => setView('shows')}
-              >
-                Shows
-              </Button>
-              <Button
-                // color='success'
-                variant={view === 'movies' ? 'contained' : 'outlined'}
-                onClick={() => setView('movies')}
-              >
-                Movies
-              </Button>
-            </ButtonGroup>
+            <Box
+              display='flex'
+              gap='.5em'
+            >
+              <ButtonGroup>
+                <Button
+                  // color='success'
+                  variant={view === 'shows' ? 'contained' : 'outlined'}
+                  onClick={() => setView('shows')}
+                >
+                  Shows
+                </Button>
+                <Button
+                  // color='success'
+                  variant={view === 'movies' ? 'contained' : 'outlined'}
+                  onClick={() => setView('movies')}
+                >
+                  Movies
+                </Button>
+              </ButtonGroup>
+              <ButtonGroup>
+                <Button onClick={() => setOpenCreateShow(true)}>
+                  Add Show
+                </Button>
+                <Button onClick={() => setOpenCreateMovie(true)}>
+                  Add Movie
+                </Button>
+              </ButtonGroup>
+            </Box>
 
             {isLoading && <>Loading Items...</>}
             {fetchError && (
               <p style={{ color: 'red' }}>{`Error: ${fetchError}`}</p>
             )}
-            {!fetchError && !isLoading && 'loaded!'}
+            {/* {!fetchError && !isLoading && 'loaded!'} */}
 
             {view === 'shows' && (
               <Shows

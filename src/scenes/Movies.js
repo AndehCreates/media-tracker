@@ -25,17 +25,19 @@ const Movies = ({ movies, onOpen, editMovie }) => {
         justifyContent='center'
         textAlign='center'
         alignItems='center'
-        p='1em'
-        gap='.75em'
+        p='.5em'
+        gap='.5em'
         borderRadius='.25em'
+        flexGrow='0'
         sx={{
           //   'backgroundColor': 'primary.dark',
-          'opacity': [0.4, 0.4, 0.4],
+          'opacity': [0.6, 0.6, 0.6],
           '&:hover': {
             backgroundColor: '#052202',
             opacity: [0.9, 0.9, 0.9],
           },
         }}
+        flexBasis='min-content'
       >
         <a
           href={link}
@@ -62,25 +64,30 @@ const Movies = ({ movies, onOpen, editMovie }) => {
             sx={{ display: 'flex', justifyContent: 'center' }}
           />
         )}
-        {!watched && (
+        <Box
+          display='flex'
+          gap='.5em'
+        >
           <Button
+            onClick={() => onOpen(movie)}
             variant='contained'
             color='success'
-            href={link}
-            target='_blank'
+            editMovie={editMovie}
+            movie={movie}
           >
-            Watch
+            Edit
           </Button>
-        )}
-        <Button
-          onClick={() => onOpen(movie)}
-          variant='contained'
-          color='success'
-          editMovie={editMovie}
-          movie={movie}
-        >
-          Edit
-        </Button>
+          {!watched && (
+            <Button
+              variant='contained'
+              color='success'
+              href={link}
+              target='_blank'
+            >
+              Watch
+            </Button>
+          )}
+        </Box>
       </Box>
     );
   }
@@ -92,10 +99,10 @@ const Movies = ({ movies, onOpen, editMovie }) => {
     // console.log(watchedMovies);
     return (
       <Grid
-        container
+        // container
         spacing={3}
         justifyContent='center'
-        p='2em'
+        // p='1em'
         display='flex'
         flexDirection='column'
       >
@@ -105,7 +112,7 @@ const Movies = ({ movies, onOpen, editMovie }) => {
         >
           <Typography
             textAlign='center'
-            fontSize='3em'
+            fontSize='2em'
             fontWeight='700'
           >
             New Movies
@@ -115,31 +122,33 @@ const Movies = ({ movies, onOpen, editMovie }) => {
           display='flex'
           flexDirection='row'
           flexWrap='wrap'
+          justifyContent='center'
           //   gap='.1em'
         >
           {newMovies.map((movie) => {
             const { Name, Duration, Image, Link, Watched, Rating } = movie;
             return (
-              <Grid
-                item
-                xs={12}
-                sm={4}
-                md={3}
-                key={Name}
-              >
-                <MovieCard
-                  key={movie.id}
-                  movie={movie}
-                  {...movie}
-                  onOpen={onOpen}
-                  name={Name}
-                  duration={Duration}
-                  image={Image}
-                  link={Link}
-                  watched={Watched}
-                  rating={Rating}
-                />
-              </Grid>
+              // <Grid
+              //   item
+              //   xs={12}
+              //   sm
+              //   md
+              //   lg
+              //   key={Name}
+              // >
+              <MovieCard
+                key={movie.id}
+                movie={movie}
+                {...movie}
+                onOpen={onOpen}
+                name={Name}
+                duration={Duration}
+                image={Image}
+                link={Link}
+                watched={Watched}
+                rating={Rating}
+              />
+              // </Grid>
             );
           })}
         </Box>
@@ -149,7 +158,7 @@ const Movies = ({ movies, onOpen, editMovie }) => {
         >
           <Typography
             textAlign='center'
-            fontSize='3em'
+            fontSize='2em'
             fontWeight='700'
           >
             Watched Movies
@@ -159,31 +168,33 @@ const Movies = ({ movies, onOpen, editMovie }) => {
           display='flex'
           flexDirection='row'
           flexWrap='wrap'
+          justifyContent='center'
           //   gap='.1em'
         >
           {watchedMovies.map((movie) => {
             const { Name, Duration, Image, Link, Watched, Rating } = movie;
             return (
-              <Grid
-                item
-                xs={12}
-                sm={4}
-                md={3}
-                key={Name}
-              >
-                <MovieCard
-                  key={movie.id}
-                  movie={movie}
-                  {...movie}
-                  onOpen={onOpen}
-                  name={Name}
-                  duration={Duration}
-                  image={Image}
-                  link={Link}
-                  watched={Watched}
-                  rating={Rating}
-                />
-              </Grid>
+              // <Grid
+              //   item
+              //   xs={12}
+              //   sm
+              //   md
+              //   lg
+              //   key={Name}
+              // >
+              <MovieCard
+                key={movie.id}
+                movie={movie}
+                {...movie}
+                onOpen={onOpen}
+                name={Name}
+                duration={Duration}
+                image={Image}
+                link={Link}
+                watched={Watched}
+                rating={Rating}
+              />
+              // </Grid>
             );
           })}
         </Box>
