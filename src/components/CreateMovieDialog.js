@@ -56,7 +56,7 @@ export default function CreateMovieDialog({ open, onCreate, onCancel }) {
         />
 
         <TextField
-          label='Duration'
+          label='Duration (m)'
           value={form.Duration}
           onChange={handleInputChange('Duration')}
           type='number'
