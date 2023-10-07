@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Badge, Grid, Box, Typography, Button, Tooltip } from '@mui/material';
+import './cards.css';
 
 const Shows = ({ shows, onOpen, editShow }) => {
   function ShowCard({
@@ -39,91 +40,92 @@ const Shows = ({ shows, onOpen, editShow }) => {
     return (
       <Box
         className='card'
-        display='flex'
-        flexDirection='column'
-        justifyContent='center'
-        textAlign='center'
-        alignItems='center'
-        flexGrow='0'
-        p='.5em'
-        // gap='.75em'
-        borderRadius='.25em'
-        sx={{
-          //   'backgroundColor': 'primary.dark',
-          'opacity': [0.6, 0.6, 0.6],
-          '&:hover': {
-            backgroundColor: '#052202',
-            opacity: [0.9, 0.9, 0.9],
-          },
-        }}
+        // sx={{
+        //   //   'backgroundColor': 'primary.dark',
+        //   'opacity': [0.6, 0.6, 0.6],
+        //   '&:hover': {
+        //     backgroundColor: '#052202',
+        //     opacity: [0.9, 0.9, 0.9],
+        //   },
+        // }}
       >
-        <Tooltip
-          //   leaveDelay={1000}
-          title={
-            <Box
-              className='cardText'
-              display='flex'
-              flexDirection='column'
-              justifyContent='center'
-              textAlign='center'
-              alignItems='center'
-              p='1.25em'
-              gap='.35em'
-              borderRadius='.25em'
-              backgroundColor='#000000b0'
-              minWidth='200px'
+        <Badge
+          badgeContent={remainingEpisodes}
+          color='success'
+        >
+          <Box className='poster'>
+            <img
+              src={Image}
+              alt={Name}
+              //   onMouseEnter={handleShowHover}
+              //   onMouseLeave={handleShowHoverClose}
+              show={show}
+            />
+          </Box>
+        </Badge>
+        {/* <Box className=''> */}
+        <Box
+          className='details'
+          // display='flex'
+          // flexDirection='column'
+          // justifyContent='center'
+          // textAlign='center'
+          // alignItems='center'
+          // p='1.25em'
+          // gap='.35em'
+          // borderRadius='.25em'
+          // backgroundColor='#000000b0'
+          // minWidth='200px'
+        >
+          <Typography
+            fontSize='1.5em'
+            fontWeight='600'
+            lineHeight='1em'
+          >
+            {Name}
+          </Typography>
+          <Typography
+            fontSize='1.25em'
+            fontWeight='500'
+            // lineHeight='1.5em'
+          >
+            Current: S {CurrentSeason} Ep {CurrentEpisode}
+            <br />
+            {remainingSeasons + remainingEpisodes == 0
+              ? status !== 'archive' && 'Caught Up!'
+              : 'Remaining: '}
+            {remainingSeasons == 0 ? '' : 'S ' + remainingSeasons + ' '}
+            {remainingEpisodes == 0 ? '' : 'Ep ' + remainingEpisodes}
+          </Typography>
+          {/* <br /> */}
+
+          <Box
+            display='flex'
+            gap='.5em'
+          >
+            <Button
+              onClick={() => onOpen(show)}
+              variant='contained'
+              color='success'
+              editShow={editShow}
+              show={show}
             >
-              <Typography
-                fontSize='1.5em'
-                fontWeight='600'
-                lineHeight='1em'
-              >
-                {Name}
-              </Typography>
-              <Typography
-                fontSize='1.25em'
-                fontWeight='500'
-                // lineHeight='1.5em'
-              >
-                Current: S {CurrentSeason} Ep {CurrentEpisode}
-                <br />
-                {remainingSeasons + remainingEpisodes == 0
-                  ? status !== 'archive' && 'Caught Up!'
-                  : 'Remaining: '}
-                {remainingSeasons == 0 ? '' : 'S ' + remainingSeasons + ' '}
-                {remainingEpisodes == 0 ? '' : 'Ep ' + remainingEpisodes}
-              </Typography>
-              {/* <br /> */}
+              Edit
+            </Button>
+            {!Archive && (
               <Button
-                onClick={() => onOpen(show)}
                 variant='contained'
                 color='success'
-                editShow={editShow}
-                show={show}
+                href={Link}
+                target='_blank'
               >
-                Edit
+                Watch
               </Button>
-            </Box>
-          }
-        >
-          <Badge
-            badgeContent={remainingEpisodes}
-            color='success'
-          >
-            <a
-              href={Link}
-              target='_blank'
-            >
-              <img
-                src={Image}
-                alt={Name}
-                //   onMouseEnter={handleShowHover}
-                //   onMouseLeave={handleShowHoverClose}
-                show={show}
-              />
-            </a>
-          </Badge>
-        </Tooltip>
+            )}
+            {/* </Box> */}
+          </Box>
+        </Box>
+
         {/* {displayShowDetails && ( */}
         {/* //   <Popover
           //     anchorOrigin={{

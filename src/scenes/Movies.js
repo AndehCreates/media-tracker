@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Grid, Rating, Box, Button, Typography } from '@mui/material';
+import './cards.css';
 
 const Movies = ({ movies, onOpen, editMovie }) => {
   function secondsToHms(d) {
@@ -20,73 +21,68 @@ const Movies = ({ movies, onOpen, editMovie }) => {
     return (
       <Box
         className='card'
-        display='flex'
-        flexDirection='column'
-        justifyContent='center'
-        textAlign='center'
-        alignItems='center'
-        p='.5em'
-        gap='.5em'
-        borderRadius='.25em'
-        flexGrow='0'
-        sx={{
-          //   'backgroundColor': 'primary.dark',
-          'opacity': [0.6, 0.6, 0.6],
-          '&:hover': {
-            backgroundColor: '#052202',
-            opacity: [0.9, 0.9, 0.9],
-          },
-        }}
+        // sx={{
+        //   //   'backgroundColor': 'primary.dark',
+        //   'opacity': [0.6, 0.6, 0.6],
+        //   '&:hover': {
+        //     backgroundColor: '#052202',
+        //     opacity: [0.9, 0.9, 0.9],
+        //   },
+        // }}
         flexBasis='min-content'
       >
-        <a
+        {/* <a
           href={link}
           target='_blank'
-        >
+          >
+          </a> */}
+        <Box className='poster'>
           <img
             src={image}
             alt={name}
           />
-        </a>
-        <Typography
-          fontSize='1.5em'
-          fontWeight='600'
-          lineHeight='1em'
-        >
-          {name}
-        </Typography>
-        {!watched && 'Duration: ' + secondsToHms(duration)}
-        {rating && (
-          <Rating
-            name='read-only'
-            value={rating}
-            readOnly
-            sx={{ display: 'flex', justifyContent: 'center' }}
-          />
-        )}
-        <Box
-          display='flex'
-          gap='.5em'
-        >
-          <Button
-            onClick={() => onOpen(movie)}
-            variant='contained'
-            color='success'
-            editMovie={editMovie}
-            movie={movie}
+        </Box>
+        <Box className='details'>
+          <Typography
+            fontSize='1.5em'
+            fontWeight='600'
+            lineHeight='1em'
           >
-            Edit
-          </Button>
-          {!watched && (
+            {name}
+          </Typography>
+          {!watched && 'Duration: ' + secondsToHms(duration)}
+          {rating && (
+            <Rating
+              name='Rating'
+              value={rating}
+              readOnly
+              sx={{ display: 'flex', justifyContent: 'center' }}
+            />
+          )}
+          <Box
+            display='flex'
+            gap='.5em'
+          >
             <Button
+              onClick={() => onOpen(movie)}
               variant='contained'
               color='success'
-              href={link}
-              target='_blank'
+              editMovie={editMovie}
+              movie={movie}
             >
-              Watch
+              Edit
             </Button>
-          )}
+            {!watched && (
+              <Button
+                variant='contained'
+                color='success'
+                href={link}
+                target='_blank'
+              >
+                Watch
+              </Button>
+            )}
+          </Box>
         </Box>
       </Box>
     );
