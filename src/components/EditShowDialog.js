@@ -155,23 +155,32 @@ const EditShowDialog = ({ openDialog, editShow, onSave, onClose }) => {
               justifyContent='space-between'
             >
               <FormControlLabel
-                control={<Switch />}
-                checked={checked.Production}
+                control={
+                  <Switch
+                    checked={checked.Production}
+                    onClick={handleCheckedChange('Production')}
+                  />
+                }
                 label='Production'
-                onClick={handleCheckedChange('Production')}
               />
               <FormControlLabel
-                control={<Switch />}
-                checked={checked.NewEpisodes}
+                control={
+                  <Switch
+                    checked={checked.NewEpisodes}
+                    onClick={handleCheckedChange('NewEpisodes')}
+                  />
+                }
                 label='New Episodes'
-                onClick={handleCheckedChange('NewEpisodes')}
                 sx={{ marginRight: '0' }}
               />
               <FormControlLabel
-                control={<Switch />}
-                checked={checked.Archive}
+                control={
+                  <Switch
+                    checked={checked.Archive}
+                    onClick={handleCheckedChange('Archive')}
+                  />
+                }
                 label='Archive'
-                onClick={handleCheckedChange('Archive')}
               />
             </Box>
           </FormGroup>

@@ -133,27 +133,36 @@ export default function CreateShowDialog({ open, onCreate, onCancel }) {
               justifyContent='space-between'
             >
               <FormControlLabel
-                control={<Switch />}
-                checked={form.Production}
-                label='Production'
-                onClick={() =>
-                  handleSwitchChange('Production')(!form.Production)
+                control={
+                  <Switch
+                    checked={form.Production}
+                    onClick={() =>
+                      handleSwitchChange('Production')(!form.Production)
+                    }
+                  />
                 }
+                label='Production'
               />
               <FormControlLabel
-                control={<Switch />}
-                checked={form.NewEpisodes}
-                label='New Episodes'
-                onClick={() =>
-                  handleSwitchChange('NewEpisodes')(!form.NewEpisodes)
+                control={
+                  <Switch
+                    checked={form.NewEpisodes}
+                    onClick={() =>
+                      handleSwitchChange('NewEpisodes')(!form.NewEpisodes)
+                    }
+                  />
                 }
+                label='New Episodes'
                 sx={{ marginRight: '0' }}
               />
               <FormControlLabel
-                control={<Switch />}
-                checked={form.Archive}
+                control={
+                  <Switch
+                    checked={form.Archive}
+                    onClick={() => handleSwitchChange('Archive')(!form.Archive)}
+                  />
+                }
                 label='Archive'
-                onClick={() => handleSwitchChange('Archive')(!form.Archive)}
               />
             </Box>
           </FormGroup>

@@ -152,10 +152,13 @@ const EditMovieDialog = ({ openDialog, editMovie, onSave, onClose }) => {
               // justifyContent='space-between'
             >
               <FormControlLabel
-                control={<Switch />}
-                checked={checked.Watched}
+                control={
+                  <Switch
+                    checked={checked.Watched}
+                    onClick={handleCheckedChange('Watched')}
+                  />
+                }
                 label='Watched'
-                onClick={handleCheckedChange('Watched')}
               />
             </Box>
           </FormGroup>

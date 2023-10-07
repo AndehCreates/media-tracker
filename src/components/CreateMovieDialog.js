@@ -86,10 +86,13 @@ export default function CreateMovieDialog({ open, onCreate, onCancel }) {
         onChange={handleChange('Watched')}
       /> */}
         <FormControlLabel
-          control={<Switch />}
-          checked={form.Watched}
+          control={
+            <Switch
+              checked={form.Watched}
+              onClick={() => handleSwitchChange('Watched')(!form.Watched)}
+            />
+          }
           label='Watched'
-          onClick={() => handleSwitchChange('Watched')(!form.Watched)}
         />
         <DialogActions>
           <Button onClick={onCancel}>Cancel</Button>
