@@ -32,7 +32,7 @@ function App() {
   const [editMovie, setEditMovie] = useState(null);
   const [fetchError, setFetchError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [rerender, setRerender] = useState({});
+  const [rerender, setRerender] = useState(0);
   const [openCreateShow, setOpenCreateShow] = useState(false);
   const [openCreateMovie, setOpenCreateMovie] = useState(false);
 
@@ -68,7 +68,7 @@ function App() {
     fetchItems();
     // setTimeout(() => {
     // }, 1000);
-  }, []);
+  }, [rerender]);
 
   const handleOpenShow = (show) => {
     setEditShow(show);
@@ -108,6 +108,7 @@ function App() {
 
     setShows([...shows, newShow]); // add to state
     setOpenCreateShow(false); // close dialog
+    setRerender(rerender + 1); // force re-render
   };
 
   const handleCreateMovie = async (newMovie) => {
@@ -116,6 +117,7 @@ function App() {
 
     setMovies([...movies, newMovie]); // add to state
     setOpenCreateMovie(false); // close dialog
+    setRerender(rerender + 1); // force re-render
   };
 
   const handleSaveEditedShow = async (record) => {
@@ -142,7 +144,7 @@ function App() {
     // update shows state
     setShows(updatedShows);
 
-    setRerender({}); // force re-render
+    // setRerender(rerender + 1); // force re-render
   };
 
   const handleSaveEditedMovie = async (record) => {
@@ -167,7 +169,7 @@ function App() {
     // update Movies state
     setMovies(updatedMovies);
 
-    setRerender({}); // force re-render
+    // setRerender(rerender + 1); // force re-render
   };
 
   function filteredMovies(movies) {
